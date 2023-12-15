@@ -40,7 +40,7 @@ struct ContentView: View {
             Button("Fetch Chuck Norris Jokes") {
                 Task {
                     do {
-                        let response: ChuckNorrisJoke = try await fetchJoke(from: .chuckNorrisJokes)
+                        let response = try await fetchJoke(from: .chuckNorrisJokes, responseType: ChuckNorrisJoke.self)
                         print("Received chuck norris joke: \(response)")
                     } catch {
                         print("Error: \(error.localizedDescription)")
@@ -51,7 +51,7 @@ struct ContentView: View {
             Button("Fetch Dad Jokes") {
                 Task {
                     do {
-                        let response: DadJoke = try await fetchJoke(from: .dadJokes)
+                        let response = try await fetchJoke(from: .dadJokes, responseType: DadJoke.self)
                         print("Received dad joke: \(response)")
                     } catch {
                         print("Error: \(error.localizedDescription)")
@@ -63,42 +63,27 @@ struct ContentView: View {
     }
 }
 
-func fetchJoke<T: Codable>(from endpoint: ApiEndpoint) async throws -> T {
-    var urlRequest = URLRequest(url: endpoint.url)
-    urlRequest.httpMethod = "GET"
-    urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
-
-    let session = URLSession(configuration: .default)
-
-    return try await withCheckedThrowingContinuation { continuation in 
-        let dataTask = session.dataTask(with: urlRequest) { data, response, error in
-            if let error = error {
-                continuation.resume(with: .failure(error))
-                return
-            }
-
-            guard let data = data else {
-                let error = NSError(domain: "YourErrorDomain", code: 0, userInfo: [
-                    NSLocalizedDescriptionKey: "No data received"
-                ])
-                continuation.resume(with: .failure(error))
-                return
-            }
-
-            do {
-                let responseObject = try JSONDecoder().decode(T.self, from: data)
-                DispatchQueue.main.async {
-                    continuation.resume(with: .success(responseObject))
-                }
-            } catch {
-                continuation.resume(with: .failure(error))
-            }
+func fetchJoke<T: Decodable>(from endpoint: ApiEndpoint, responseType: T.Type) async throws -> T {
+    let url = endpoint.url
+    var request = URLRequest(url: url)
+    for (headerField, headerValue) in endpoint.headers {
+        request.addValue(headerValue, forHTTPHeaderField: headerField)
+    }
+    
+    do {
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw APIError.httpError((response as? HTTPURLResponse)?.statusCode ?? 0)
         }
         
-        dataTask.resume()
+        let decoder = JSONDecoder()
+        let joke = try decoder.decode(T.self, from: data)
+        return joke
+    } catch {
+        throw APIError.networkError(error)
     }
 }
-
 
 enum ApiEndpoint {
     case dadJokes
@@ -115,10 +100,10 @@ enum ApiEndpoint {
     
     var headers: [String: String] {
         switch self {
-        case .dadJokes:
-            return [:]
         case .chuckNorrisJokes:
-            return ["Accept": "application/json"]
+            return [:]
+        case .dadJokes:
+            return ["Accept" : "application/json", "User-Agent" : Bundle.main.bundleIdentifier ?? ""]
         }
     }
 }
