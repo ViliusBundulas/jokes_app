@@ -40,14 +40,10 @@ struct ContentView: View {
             Button("Fetch Chuck Norris Jokes") {
                 Task {
                     do {
-                        chuckNorrisJoke = try await fetchJoke(from: .chuckNorrisJokes, responseType: ChuckNorrisJoke.self)
-                        print("#### \(chuckNorrisJoke)")
+                        let response: ChuckNorrisJoke = try await fetchJoke(from: .chuckNorrisJokes)
+                        print("Received chuck norris joke: \(response)")
                     } catch {
-                        if case let APIError.httpError(statusCode) = error {
-                            print("HTTP error: Status Code \(statusCode)")
-                        } else {
-                            print("Error fetching Chuck Norris jokes: \(error)")
-                        }
+                        print("Error: \(error.localizedDescription)")
                     }
                 }
             }
@@ -55,42 +51,54 @@ struct ContentView: View {
             Button("Fetch Dad Jokes") {
                 Task {
                     do {
-                        dadJoke = try await fetchJoke(from: .dadJokes, responseType: DadJoke.self)
+                        let response: DadJoke = try await fetchJoke(from: .dadJokes)
+                        print("Received dad joke: \(response)")
                     } catch {
-                        if case let APIError.httpError(statusCode) = error {
-                            print("HTTP error: Status Code \(statusCode)")
-                        } else {
-                            print("Error fetching Dad jokes: \(error)")
-                        }
+                        print("Error: \(error.localizedDescription)")
                     }
                 }
             }
         }
         .padding()
     }
-    
-    func fetchJoke<T: Decodable>(from endpoint: ApiEndpoint, responseType: T.Type) async throws -> T {
-        let url = endpoint.url
-        var request = URLRequest(url: url)
-        for (headerField, headerValue) in endpoint.headers {
-            request.setValue(headerValue, forHTTPHeaderField: headerField)
+}
+
+func fetchJoke<T: Codable>(from endpoint: ApiEndpoint) async throws -> T {
+    var urlRequest = URLRequest(url: endpoint.url)
+    urlRequest.httpMethod = "GET"
+    urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+
+    let session = URLSession(configuration: .default)
+
+    return try await withCheckedThrowingContinuation { continuation in 
+        let dataTask = session.dataTask(with: urlRequest) { data, response, error in
+            if let error = error {
+                continuation.resume(with: .failure(error))
+                return
+            }
+
+            guard let data = data else {
+                let error = NSError(domain: "YourErrorDomain", code: 0, userInfo: [
+                    NSLocalizedDescriptionKey: "No data received"
+                ])
+                continuation.resume(with: .failure(error))
+                return
+            }
+
+            do {
+                let responseObject = try JSONDecoder().decode(T.self, from: data)
+                DispatchQueue.main.async {
+                    continuation.resume(with: .success(responseObject))
+                }
+            } catch {
+                continuation.resume(with: .failure(error))
+            }
         }
         
-        do {
-            let (data, response) = try await URLSession.shared.data(from: url)
-            
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                throw APIError.httpError((response as? HTTPURLResponse)?.statusCode ?? 0)
-            }
-            
-            let decoder = JSONDecoder()
-            let joke = try decoder.decode(T.self, from: data)
-            return joke
-        } catch {
-            throw APIError.networkError(error)
-        }
+        dataTask.resume()
     }
 }
+
 
 enum ApiEndpoint {
     case dadJokes
@@ -113,12 +121,6 @@ enum ApiEndpoint {
             return ["Accept": "application/json"]
         }
     }
-}
-
-struct JokeResponse<T: Decodable>: Decodable {
-    let id: String
-    let joke: T
-    let status: Int
 }
 
 enum APIError: Error {
