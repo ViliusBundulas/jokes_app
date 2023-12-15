@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		2578CAC52B2B1A6B00D6F572 /* jokes_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578CAC42B2B1A6B00D6F572 /* jokes_appApp.swift */; };
-		2578CAC72B2B1A6B00D6F572 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578CAC62B2B1A6B00D6F572 /* ContentView.swift */; };
+		2578CAC72B2B1A6B00D6F572 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578CAC62B2B1A6B00D6F572 /* HomeView.swift */; };
 		2578CAC92B2B1A6C00D6F572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2578CAC82B2B1A6C00D6F572 /* Assets.xcassets */; };
 		2578CACD2B2B1A6C00D6F572 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2578CACC2B2B1A6C00D6F572 /* Preview Assets.xcassets */; };
 		2578CAD72B2B1A6C00D6F572 /* jokes_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578CAD62B2B1A6C00D6F572 /* jokes_appTests.swift */; };
 		2578CAE12B2B1A6C00D6F572 /* jokes_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578CAE02B2B1A6C00D6F572 /* jokes_appUITests.swift */; };
 		2578CAE32B2B1A6C00D6F572 /* jokes_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578CAE22B2B1A6C00D6F572 /* jokes_appUITestsLaunchTests.swift */; };
+		25FD76252B2C7BA700F5B619 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 25FD76242B2C7BA700F5B619 /* Swinject */; };
+		25FD76282B2C949900F5B619 /* DadJoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FD76272B2C949900F5B619 /* DadJoke.swift */; };
+		25FD762A2B2C94B800F5B619 /* ChuckNorrisJoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FD76292B2C94B800F5B619 /* ChuckNorrisJoke.swift */; };
+		25FD762C2B2C952F00F5B619 /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FD762B2B2C952F00F5B619 /* ApiEndpoint.swift */; };
+		25FD762F2B2C957B00F5B619 /* JokesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FD762E2B2C957B00F5B619 /* JokesViewModel.swift */; };
+		25FD76312B2C95B800F5B619 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FD76302B2C95B800F5B619 /* ApiService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +42,7 @@
 /* Begin PBXFileReference section */
 		2578CAC12B2B1A6B00D6F572 /* jokes_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jokes_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2578CAC42B2B1A6B00D6F572 /* jokes_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jokes_appApp.swift; sourceTree = "<group>"; };
-		2578CAC62B2B1A6B00D6F572 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2578CAC62B2B1A6B00D6F572 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2578CAC82B2B1A6C00D6F572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2578CACA2B2B1A6C00D6F572 /* jokes_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = jokes_app.entitlements; sourceTree = "<group>"; };
 		2578CACC2B2B1A6C00D6F572 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -45,6 +51,11 @@
 		2578CADC2B2B1A6C00D6F572 /* jokes_appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jokes_appUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2578CAE02B2B1A6C00D6F572 /* jokes_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jokes_appUITests.swift; sourceTree = "<group>"; };
 		2578CAE22B2B1A6C00D6F572 /* jokes_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jokes_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		25FD76272B2C949900F5B619 /* DadJoke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DadJoke.swift; sourceTree = "<group>"; };
+		25FD76292B2C94B800F5B619 /* ChuckNorrisJoke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckNorrisJoke.swift; sourceTree = "<group>"; };
+		25FD762B2B2C952F00F5B619 /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
+		25FD762E2B2C957B00F5B619 /* JokesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesViewModel.swift; sourceTree = "<group>"; };
+		25FD76302B2C95B800F5B619 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25FD76252B2C7BA700F5B619 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,8 +107,11 @@
 		2578CAC32B2B1A6B00D6F572 /* jokes_app */ = {
 			isa = PBXGroup;
 			children = (
+				25FD76322B2C95E800F5B619 /* Views */,
+				25FD762D2B2C955900F5B619 /* ViewModels */,
+				25FD76262B2C948A00F5B619 /* Models */,
+				25FD76222B2C70DF00F5B619 /* Networking */,
 				2578CAC42B2B1A6B00D6F572 /* jokes_appApp.swift */,
-				2578CAC62B2B1A6B00D6F572 /* ContentView.swift */,
 				2578CAC82B2B1A6C00D6F572 /* Assets.xcassets */,
 				2578CACA2B2B1A6C00D6F572 /* jokes_app.entitlements */,
 				2578CACB2B2B1A6C00D6F572 /* Preview Content */,
@@ -129,6 +144,40 @@
 			path = jokes_appUITests;
 			sourceTree = "<group>";
 		};
+		25FD76222B2C70DF00F5B619 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				25FD76302B2C95B800F5B619 /* ApiService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		25FD76262B2C948A00F5B619 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				25FD76272B2C949900F5B619 /* DadJoke.swift */,
+				25FD76292B2C94B800F5B619 /* ChuckNorrisJoke.swift */,
+				25FD762B2B2C952F00F5B619 /* ApiEndpoint.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		25FD762D2B2C955900F5B619 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				25FD762E2B2C957B00F5B619 /* JokesViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		25FD76322B2C95E800F5B619 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2578CAC62B2B1A6B00D6F572 /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +194,9 @@
 			dependencies = (
 			);
 			name = jokes_app;
+			packageProductDependencies = (
+				25FD76242B2C7BA700F5B619 /* Swinject */,
+			);
 			productName = jokes_app;
 			productReference = 2578CAC12B2B1A6B00D6F572 /* jokes_app.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +269,9 @@
 				Base,
 			);
 			mainGroup = 2578CAB82B2B1A6B00D6F572;
+			packageReferences = (
+				25FD76232B2C7BA700F5B619 /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = 2578CAC22B2B1A6B00D6F572 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,8 +314,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2578CAC72B2B1A6B00D6F572 /* ContentView.swift in Sources */,
+				25FD762A2B2C94B800F5B619 /* ChuckNorrisJoke.swift in Sources */,
+				2578CAC72B2B1A6B00D6F572 /* HomeView.swift in Sources */,
 				2578CAC52B2B1A6B00D6F572 /* jokes_appApp.swift in Sources */,
+				25FD76282B2C949900F5B619 /* DadJoke.swift in Sources */,
+				25FD762C2B2C952F00F5B619 /* ApiEndpoint.swift in Sources */,
+				25FD76312B2C95B800F5B619 /* ApiService.swift in Sources */,
+				25FD762F2B2C957B00F5B619 /* JokesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,8 +492,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -442,10 +502,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Bundulas.Vilius.jokesApp.ios.project.jokes-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -470,8 +531,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -480,10 +541,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Bundulas.Vilius.jokesApp.ios.project.jokes-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -617,6 +679,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		25FD76232B2C7BA700F5B619 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		25FD76242B2C7BA700F5B619 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25FD76232B2C7BA700F5B619 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2578CAB92B2B1A6B00D6F572 /* Project object */;
 }

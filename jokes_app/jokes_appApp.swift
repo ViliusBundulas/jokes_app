@@ -6,12 +6,26 @@
 //
 
 import SwiftUI
+import Swinject
 
 @main
 struct jokes_appApp: App {
+    
+    private let container: Container = {
+        let container = Container()
+        container.register(ApiServiceProtocol.self) { _ in
+            ApiService()
+        }
+        container.register(JokesViewModel.self) { resolver in
+            JokesViewModel(apiService: resolver.resolve(ApiServiceProtocol.self)!)
+        }
+        return container
+    }()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
+                .environmentObject(container.resolve(JokesViewModel.self)!)
         }
     }
 }
