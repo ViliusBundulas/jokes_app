@@ -11,9 +11,6 @@
 		2578CAC72B2B1A6B00D6F572 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578CAC62B2B1A6B00D6F572 /* MainView.swift */; };
 		2578CAC92B2B1A6C00D6F572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2578CAC82B2B1A6C00D6F572 /* Assets.xcassets */; };
 		2578CACD2B2B1A6C00D6F572 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2578CACC2B2B1A6C00D6F572 /* Preview Assets.xcassets */; };
-		2578CAD72B2B1A6C00D6F572 /* jokes_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578CAD62B2B1A6C00D6F572 /* jokes_appTests.swift */; };
-		2578CAE12B2B1A6C00D6F572 /* jokes_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578CAE02B2B1A6C00D6F572 /* jokes_appUITests.swift */; };
-		2578CAE32B2B1A6C00D6F572 /* jokes_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2578CAE22B2B1A6C00D6F572 /* jokes_appUITestsLaunchTests.swift */; };
 		25FD76252B2C7BA700F5B619 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 25FD76242B2C7BA700F5B619 /* Swinject */; };
 		25FD76282B2C949900F5B619 /* DadJoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FD76272B2C949900F5B619 /* DadJoke.swift */; };
 		25FD762A2B2C94B800F5B619 /* ChuckNorrisJoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FD76292B2C94B800F5B619 /* ChuckNorrisJoke.swift */; };
@@ -52,10 +49,7 @@
 		2578CACA2B2B1A6C00D6F572 /* jokes_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = jokes_app.entitlements; sourceTree = "<group>"; };
 		2578CACC2B2B1A6C00D6F572 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2578CAD22B2B1A6C00D6F572 /* jokes_appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jokes_appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2578CAD62B2B1A6C00D6F572 /* jokes_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jokes_appTests.swift; sourceTree = "<group>"; };
 		2578CADC2B2B1A6C00D6F572 /* jokes_appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jokes_appUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2578CAE02B2B1A6C00D6F572 /* jokes_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jokes_appUITests.swift; sourceTree = "<group>"; };
-		2578CAE22B2B1A6C00D6F572 /* jokes_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jokes_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		25FD76272B2C949900F5B619 /* DadJoke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DadJoke.swift; sourceTree = "<group>"; };
 		25FD76292B2C94B800F5B619 /* ChuckNorrisJoke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckNorrisJoke.swift; sourceTree = "<group>"; };
 		25FD762B2B2C952F00F5B619 /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
@@ -98,8 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				2578CAC32B2B1A6B00D6F572 /* jokes_app */,
-				2578CAD52B2B1A6C00D6F572 /* jokes_appTests */,
-				2578CADF2B2B1A6C00D6F572 /* jokes_appUITests */,
 				2578CAC22B2B1A6B00D6F572 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -136,23 +128,6 @@
 				2578CACC2B2B1A6C00D6F572 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		2578CAD52B2B1A6C00D6F572 /* jokes_appTests */ = {
-			isa = PBXGroup;
-			children = (
-				2578CAD62B2B1A6C00D6F572 /* jokes_appTests.swift */,
-			);
-			path = jokes_appTests;
-			sourceTree = "<group>";
-		};
-		2578CADF2B2B1A6C00D6F572 /* jokes_appUITests */ = {
-			isa = PBXGroup;
-			children = (
-				2578CAE02B2B1A6C00D6F572 /* jokes_appUITests.swift */,
-				2578CAE22B2B1A6C00D6F572 /* jokes_appUITestsLaunchTests.swift */,
-			);
-			path = jokes_appUITests;
 			sourceTree = "<group>";
 		};
 		25FD76222B2C70DF00F5B619 /* Networking */ = {
@@ -364,7 +339,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2578CAD72B2B1A6C00D6F572 /* jokes_appTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,8 +346,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2578CAE12B2B1A6C00D6F572 /* jokes_appUITests.swift in Sources */,
-				2578CAE32B2B1A6C00D6F572 /* jokes_appUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChuckNorrisJoke: Codable {
+struct ChuckNorrisJoke: Codable, Identifiable {
     let iconURL: String
     let id: String
     let url: String
