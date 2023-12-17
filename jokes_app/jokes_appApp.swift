@@ -19,13 +19,16 @@ struct jokes_appApp: App {
         container.register(JokesViewModel.self) { resolver in
             JokesViewModel(apiService: resolver.resolve(ApiServiceProtocol.self)!)
         }
+        container.register(UserModel.self) { _ in UserModel() }
+                    .inObjectScope(.container)
         return container
     }()
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            MainView()
                 .environmentObject(container.resolve(JokesViewModel.self)!)
+                .environmentObject(container.resolve(UserModel.self)!)
         }
     }
 }

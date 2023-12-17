@@ -1,15 +1,13 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  jokes_app
 //
-//  Created by Vilius Bundulas on 14/12/2023.
+//  Created by Vilius Bundulas on 17/12/2023.
 //
 
 import SwiftUI
-import Swinject
 
 struct HomeView: View {
-    
     @EnvironmentObject var jokesViewModel: JokesViewModel
     
     var body: some View {
@@ -29,7 +27,7 @@ struct HomeView: View {
                     .padding(.vertical, 5)
                 
                 JokesButton(title: "Get random Chuck Norris joke") {
-                    jokesViewModel.getJoke(from: .dadJokes)
+                    jokesViewModel.getJoke(from: .chuckNorrisJokes)
                 }
             }
             .padding()
